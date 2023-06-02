@@ -1,0 +1,14 @@
+credentials:
+  usernames:
+    admin:
+      email: admin@admin.com
+      name: admin
+      password: admin
+cookie:
+  expiry_days: 30
+  key: key 
+  name: cookie_app
+
+preauthorized:
+  emails:
+  - admin@admin.com

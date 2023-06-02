@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+    
+  postgres_db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+
+      
+    ports:
+      - 5432:5432
+    volumes:
+      - './postgres/postgres_db:/var/lib/postgresql/data'
+      - ./create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
+
+
+  pg_admin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.es
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - 80:80
+    volumes: 
+      - './postgres/pg_admin:/var/lib/pgadmin'
+     
